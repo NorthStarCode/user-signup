@@ -73,7 +73,7 @@ def entry_check():
         varifypass = ''
     else:
         if password != verifypass:
-            verifypass_error = 'Passwords do not match! Please renter both.'
+            verifypass_error = 'Passwords do not match! Please re-enter both.'
             verifypass = ''
             password = ''
 
@@ -84,7 +84,7 @@ def entry_check():
         email = email
     else:
         if not spec_char(email):
-            email_error = 'Email format invalid! Please be sure email include a . and @.'
+            email_error = 'Email format invalid! Please be sure email include: . and @'
             email = email
 
     if not username_error and not password_error and not verifypass_error and not email_error:
