@@ -10,7 +10,7 @@ app.config['DEBUG'] = True
 
 @app.route("/")
 def index():
-    return render_template('signup.html')
+    return render_template('signup.html', title="User Signup")
 
 @app.route("/welcome", methods=['GET'])
 def welcome_user():
@@ -98,7 +98,8 @@ def entry_check():
             email_error=email_error,
             email=email,
             password=password,
-            username=username)
+            username=username,
+            title="User Signup")
 
 
 app.run()
