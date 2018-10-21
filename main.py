@@ -34,10 +34,10 @@ def len_ok(entry):
         return True
 
 def spec_char(entry):
-    if "@" or "." in entry:
-        return False
-    else:
+    if "@" in entry and "." in entry:
         return True
+    else:
+        return False
 
 @app.route('/', methods=['POST'])
 def entry_check():
@@ -58,7 +58,7 @@ def entry_check():
     else:
         if is_space(username) or len_ok(username):
             username_error = 'Username not valid! Please make sure there are no spaces and it is between 3-20 characters.'
-            username = ''
+            username = username
 
     if not is_blank(password):
         password_error = 'Password field was left blank'
@@ -77,15 +77,15 @@ def entry_check():
             verifypass = ''
             password = ''
 
-    if is_blank(email):
-        pass
-    elif not is_space(email) or not len_ok(email) or not spec_char(email):
+    if not is_blank(email):
+        email = email
+    elif is_space(email)  or  len_ok(email):
         email_error = 'Email format invalid! Please make sure there are no spaces and it is between 3-20 characters.'
-        email = ''
+        email = email
     else:
         if not spec_char(email):
             email_error = 'Email format invalid! Please be sure email include a . and @.'
-            email= ''
+            email = email
 
     if not username_error and not password_error and not verifypass_error and not email_error:
         return redirect('/welcome?username={0}'.format(username))

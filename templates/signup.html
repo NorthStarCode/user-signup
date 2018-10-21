@@ -3,25 +3,51 @@
 {% block content %}
 
     <body>
-    <h1>Signup</h1>
+    <h1>User Signup</h1>
     <form method='POST'>
-        <label for="username">Username:</label>
-            <input name="username" type="text" value="{{username}}">
-        </label>
-        <p class="error">{{username_error}}</p>
-        <label for="password">Password:</label>
-            <input name="password" type="password" value="">
-        </label>
-        <p class="error">{{password_error}}</p>
-        <label for="verifypass">Verify Password:</label>
-            <input name="verifypass" type="password" value ="">
-        </label>
-        <p class="error">{{verifypass_error}}</p>
-        <label for="email">Email (optional):</label>
-            <input name="email" value="{{email}}">
-        </label>
-        <p class="error">{{email_error}}</p>
-        <input type="submit" value="Signup" />
+    <table>
+        <tr>
+            <td>
+                <label for="username">Username:</label>
+            </td>
+            <td>
+                <input name="username" type="text" value="{{username}}">
+                <span class="error">{{username_error}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="password">Password:</label>
+            </td>
+            <td>
+                <input name="password" type="password" value="">
+                <span class="error">{{password_error}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="verifypass">Verify Password:</label>
+            </td>
+            <td>
+                <input name="verifypass" type="password" value ="">
+                <span class="error">{{verifypass_error}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email">Email (optional):</label>
+            </td>
+            <td>
+                <input name="email" value="{{email}}">
+                <span class="error">{{email_error}}</span>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Signup" />
+            </td>
+        </tr>
+    </table>
     </form>
 
     {% endblock %}
